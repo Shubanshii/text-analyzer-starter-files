@@ -1,8 +1,10 @@
 // your code here!
 
 $(document).ready(function(){
+
 	$('form').submit(function(event){
 		//prevent default isn't working as i want it to
+		//$('.js-word-count').remove(wordArray.length);
 		event.preventDefault();
 		$('dl').removeClass('hidden');
 		var message = $('textarea').val();
@@ -19,7 +21,7 @@ $(document).ready(function(){
 }
 	getTokens(message);
 	
-	$('.js-word-count').append(wordArray.length);
+	$('.js-word-count').text(wordArray.length);
 
 	// console.log(wordArray.length);
 	//This number will be reduced by 1 each time we find a repeat word
@@ -34,11 +36,11 @@ $(document).ready(function(){
 		}
 		
 	})
-	console.log("the number of characters is" + charNum);
+	//console.log(charNum);
 	var avgWordLength = charNum / wordArray.length;
-	$('.js-unique-word-count').append(uniqueWordCount);
-	$('.js-average-word-length').append(avgWordLength + ' characters');
-
+	$('.js-unique-word-count').text(uniqueWordCount);
+	$('.js-average-word-length').text(avgWordLength + ' characters');
+//	console.log(uniqueWordCount)
 })
 
 });
